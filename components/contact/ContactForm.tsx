@@ -59,7 +59,6 @@ export function ContactForm() {
         </label>
       </div>
       <div className={styles.helperRow}>
-        <p>This opens a draft in your email app so you can review the message before sending.</p>
         <button type="submit" className={styles.submit}>
           Prepare project email
           <ArrowUpRight size={16} />
