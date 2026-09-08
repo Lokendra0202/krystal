@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 
-import { ArrowRight, BarChart3, Play, Rocket, Sparkles, Trophy, Users } from "lucide-react";
+import { ArrowRight, BarChart3, Rocket, Sparkles, Trophy, Users } from "lucide-react";
 
-import { Button } from "@/components/ui/Button";
 import styles from "./StatsSection.module.css";
 
 const aboutStats = [
@@ -81,20 +80,6 @@ export function StatsSection() {
                     <span className="absolute inset-x-5 bottom-0 h-px bg-[linear-gradient(90deg,rgba(255,77,184,0),rgba(255,77,184,0.65),rgba(255,77,184,0))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   </div>
                 ))}
-              </div>
-              <div className="mt-8 flex flex-wrap items-center gap-6">
-                <Button
-                  href="/about"
-                  className="rounded-full !px-7 !py-3.5 text-sm font-semibold !text-[#130812]"
-                >
-                  Our Story <ArrowRight className="ml-3 size-4" />
-                </Button>
-                <a href="/about" className="group inline-flex items-center gap-4 text-sm text-white/68 transition-colors hover:text-white">
-                  <span className="flex size-12 items-center justify-center rounded-full border border-white/14 bg-white/[0.04]">
-                    <Play className="ml-0.5 size-4 fill-current text-white" />
-                  </span>
-                  Watch Our Journey
-                </a>
               </div>
             </div>
 
