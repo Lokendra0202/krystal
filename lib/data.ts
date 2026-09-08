@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/constants";
+
 export const navigationItems = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
@@ -96,7 +98,8 @@ export const stats = [
 ];
 
 export const contactDetails = [
-  { label: "Email", value: "hello@krystal.studio" },
+  { label: "Email", value: siteConfig.email },
+  { label: "Phone", value: siteConfig.phone },
   { label: "Location", value: "Remote-first, globally available" },
   { label: "Timeline", value: "New projects from October 2026" },
 ];

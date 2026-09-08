@@ -9,23 +9,23 @@ import styles from "./StatsSection.module.css";
 
 const aboutStats = [
   {
-    value: "5+",
-    label: "Years of Experience",
+    value: "3",
+    label: "Creative Services",
     icon: Users,
   },
   {
-    value: "100+",
-    label: "Projects Delivered",
+    value: "Logo",
+    label: "Brand Identity",
     icon: Rocket,
   },
   {
-    value: "50+",
-    label: "Happy Clients",
+    value: "Social",
+    label: "Media Marketing",
     icon: Trophy,
   },
   {
-    value: "3x",
-    label: "Average Growth",
+    value: "Reels",
+    label: "Short-Form Videos",
     icon: BarChart3,
   },
 ];

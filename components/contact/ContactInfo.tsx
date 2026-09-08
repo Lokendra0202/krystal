@@ -1,4 +1,5 @@
-import { ArrowUpRight, Globe2, Mail, MessagesSquare } from "lucide-react";
+import { ArrowUpRight, Globe2, Mail, MessagesSquare, Phone } from "lucide-react";
+import { siteConfig } from "@/lib/constants";
 import styles from "./Contact.module.css";
 
 export function ContactInfo() {
@@ -16,8 +17,16 @@ export function ContactInfo() {
         <div className={styles.infoItem}>
           <Mail aria-hidden="true" />
           <span>Email us</span>
-          <a href="mailto:hello@krystal.studio">
-            hello@krystal.studio
+          <a href={`mailto:${siteConfig.email}`}>
+            {siteConfig.email}
+            <ArrowUpRight size={16} />
+          </a>
+        </div>
+        <div className={styles.infoItem}>
+          <Phone aria-hidden="true" />
+          <span>Call us</span>
+          <a href={siteConfig.phoneHref}>
+            {siteConfig.phone}
             <ArrowUpRight size={16} />
           </a>
         </div>

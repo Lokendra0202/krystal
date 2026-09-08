@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
+import { siteConfig } from "@/lib/constants";
 import styles from "./Contact.module.css";
 
 export function ContactHero() {
@@ -24,8 +25,8 @@ export function ContactHero() {
               Start a brief
               <ArrowDown size={16} />
             </Link>
-            <a href="mailto:hello@krystal.studio" className={styles.secondary}>
-              hello@krystal.studio
+            <a href={`mailto:${siteConfig.email}`} className={styles.secondary}>
+              {siteConfig.email}
               <ArrowUpRight size={16} />
             </a>
           </div>

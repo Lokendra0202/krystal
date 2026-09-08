@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { siteConfig } from "@/lib/constants";
 import styles from "./Contact.module.css";
 
 export function ContactForm() {
@@ -11,7 +12,7 @@ export function ContactForm() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const body = `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nCompany: ${data.get("company")}\nService: ${data.get("service")}\n\n${data.get("message")}`;
-    window.location.href = `mailto:hello@krystal.studio?subject=${encodeURIComponent("Project inquiry: " + data.get("service"))}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent("Project inquiry: " + data.get("service"))}&body=${encodeURIComponent(body)}`;
     setPrepared(true);
   }
 
@@ -66,7 +67,7 @@ export function ContactForm() {
       </div>
       {prepared ? (
         <p role="status" className={styles.status}>
-          Your email draft has been requested. If your email app did not open, email hello@krystal.studio directly.
+          Your email draft has been requested. If your email app did not open, email {siteConfig.email} directly.
         </p>
       ) : null}
     </form>

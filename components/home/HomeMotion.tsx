@@ -26,6 +26,7 @@ export function HomeMotion({ children }: { children: ReactNode }) {
         const numbers = select("[data-stat-value]") as HTMLElement[];
         numbers.forEach((element) => {
           const original = element.dataset.statValue ?? "";
+          if (!/^\d/.test(original)) return;
           const counter = { value: 0 };
           gsap.to(counter, {
             value: parseInt(original, 10), duration: 1.6, ease: "power2.out",
