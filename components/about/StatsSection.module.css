@@ -1,0 +1,53 @@
+.surface {
+  background: #030303;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(135deg, #030303, #101112 46%, #020202 78%);
+}
+
+.halo {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(ellipse at 28% 35%, rgb(210 218 225 / 10%), transparent 45%);
+  animation: drift 16s ease-in-out infinite alternate;
+}
+
+.sheen {
+  position: absolute;
+  inset: -60% -45%;
+  background: linear-gradient(115deg, transparent 35%, rgb(255 255 255 / 2%) 43%, rgb(225 231 238 / 10%) 48%, rgb(255 255 255 / 3%) 51%, transparent 58%);
+  filter: blur(22px);
+  transform: translateX(-22%) rotate(-8deg);
+  animation: shine 14s ease-in-out infinite alternate;
+}
+
+.reflection {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 65% 100%, rgb(201 211 222 / 8%), transparent 50%);
+  animation: drift 12s ease-in-out -6s infinite alternate-reverse;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 35%), transparent 25%, transparent 70%, rgb(0 0 0 / 65%));
+}
+
+@keyframes shine {
+  to { transform: translateX(22%) rotate(4deg); }
+}
+
+@keyframes drift {
+  to { transform: translate3d(5%, -3%, 0) scale(1.08); opacity: 0.65; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .halo, .sheen, .reflection { animation: none; }
+}

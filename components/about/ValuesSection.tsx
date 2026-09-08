@@ -1,0 +1,4 @@
+import { values } from "@/lib/data";
+export function ValuesSection() {
+  return <section className="section border-y border-white/10 bg-[#100710]"><div className="container"><span className="eyebrow">What guides us</span><h2 className="mt-5 font-heading text-4xl font-semibold tracking-tight md:text-5xl">The thinking behind the making.</h2><div className="mt-10 grid gap-5 md:grid-cols-3">{values.map((value, index) => <article key={value.title} className="card-base p-8"><div className="flex items-center justify-between"><p className="text-xs uppercase tracking-[0.18em] text-pink-bright">{value.kicker}</p><span className="font-heading text-white/30">0{index + 1}</span></div><h3 className="mt-12 font-heading text-2xl font-medium">{value.title}</h3><p className="mt-4 text-sm leading-7 text-text-secondary">{value.description}</p></article>)}</div></div></section>;
+}
