@@ -65,7 +65,7 @@ export function Footer() {
             <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">Stay connected</h3>
             <div className="space-y-2">
               {socialItems.map((item) => (
-                <Link key={item.label} href={item.href} className="group flex items-center justify-between rounded-xl border border-white/8 bg-white/[0.02] px-4 py-3.5 text-sm text-text-secondary transition-colors hover:border-pink-primary/40 hover:bg-pink-primary/5 hover:text-white focus-visible:outline-2 focus-visible:outline-pink-bright">
+                <Link key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between rounded-xl border border-white/8 bg-white/[0.02] px-4 py-3.5 text-sm text-text-secondary transition-colors hover:border-pink-primary/40 hover:bg-pink-primary/5 hover:text-white focus-visible:outline-2 focus-visible:outline-pink-bright">
                   {item.label}
                   <ArrowUpRight className="size-4 text-text-muted transition-colors group-hover:text-pink-bright" aria-hidden="true" />
                 </Link>

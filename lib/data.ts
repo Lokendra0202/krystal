@@ -8,9 +8,9 @@ export const navigationItems = [
 ];
 
 export const socialItems = [
-  { label: "Instagram", href: "#" },
-  { label: "Behance", href: "#" },
-  { label: "LinkedIn", href: "#" },
+  { label: "Instagram", href: "https://www.instagram.com/krystalcreatives?stkn=MXVuNDE4YW9oYzFiYw%3D%3D&utm_source=qr" },
+  { label: "Behance", href: "https://www.behance.net/krystalcreativ" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/krystal-creative/posts/?viewAsMember=true" },
 ];
 
 export const services = [
