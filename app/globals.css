@@ -2,6 +2,10 @@
 @import "@fontsource/space-grotesk/400.css";
 @import "@fontsource/space-grotesk/500.css";
 @import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
 @import "@fontsource/plus-jakarta-sans/400.css";
 @import "@fontsource/plus-jakarta-sans/500.css";
 @import "@fontsource/plus-jakarta-sans/600.css";
@@ -26,7 +30,7 @@
   --radius-lg: 2rem;
   --shadow-glow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 24px 80px rgba(255, 43, 154, 0.18);
   --section-space: clamp(5rem, 8vw, 8rem);
-  --font-impact: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Black", sans-serif;
+  --font-display: "Poppins", sans-serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
 }
 
@@ -44,7 +48,7 @@
   --color-pink-soft: var(--pink-soft);
   --color-charcoal: var(--charcoal);
   --font-sans: var(--font-body);
-  --font-heading: var(--font-impact);
+  --font-heading: var(--font-display);
 }
 
 * {
@@ -85,8 +89,7 @@ h4,
 h5,
 h6,
 .font-heading {
-  font-weight: 400;
-  font-family: var(--font-impact);
+  font-family: var(--font-display);
   letter-spacing: 0 !important;
 }
 
