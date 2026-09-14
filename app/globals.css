@@ -26,6 +26,8 @@
   --radius-lg: 2rem;
   --shadow-glow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 24px 80px rgba(255, 43, 154, 0.18);
   --section-space: clamp(5rem, 8vw, 8rem);
+  --font-impact: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Black", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
 }
 
 @theme inline {
@@ -41,8 +43,8 @@
   --color-pink-bright: var(--pink-bright);
   --color-pink-soft: var(--pink-soft);
   --color-charcoal: var(--charcoal);
-  --font-sans: "Plus Jakarta Sans", sans-serif;
-  --font-heading: "Space Grotesk", sans-serif;
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-impact);
 }
 
 * {
@@ -62,9 +64,30 @@ body {
     radial-gradient(circle at 80% 20%, rgba(255, 77, 184, 0.12), transparent 24%),
     linear-gradient(180deg, #080808 0%, #050505 100%);
   color: var(--text-primary);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: var(--font-body);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+.font-sans {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-weight: 400;
+  font-family: var(--font-impact);
+  letter-spacing: 0 !important;
 }
 
 a {

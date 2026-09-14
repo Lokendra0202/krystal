@@ -13,6 +13,12 @@ export const socialItems = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/krystal-creative/posts/?viewAsMember=true" },
 ];
 
+export const serviceLinks = [
+  { number: "01", title: "Graphics & logo design", id: "brand-design", href: "/services#brand-design" },
+  { number: "02", title: "Social media marketing", id: "social-media", href: "/services#social-media" },
+  { number: "03", title: "Reels creation", id: "reels", href: "/services#reels" },
+];
+
 export const services = [
   {
     kicker: "Brand",

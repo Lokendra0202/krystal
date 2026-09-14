@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight, Plus } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { serviceLinks } from "@/lib/data";
 import styles from "./Portfolio.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -43,7 +44,7 @@ export function PortfolioGrid() {
           {visible.map((project) => <article key={project.id} data-project-card className={`${styles.card} ${project.id === "identity" ? styles.featured : ""} ${visible.length === 1 ? styles.single : ""}`}>
             <div className={styles.visual}><Image src={project.image} alt={`${project.title}: ${project.category.toLowerCase()} concept illustration`} fill sizes={project.id === "identity" || visible.length === 1 ? "(max-width: 760px) 100vw, 85vw" : "(max-width: 760px) 100vw, 45vw"} className={styles.cover} /><span className={styles.concept}>CREATIVE CONCEPT / {project.number}</span><div className={styles.visualCaption}><span>{project.category}</span><span>{project.number} / 03</span></div></div>
             <div className={styles.cardBody}><div className={styles.cardTitle}><h3>{project.title}</h3><span className={styles.projectNumber}>{project.number}</span></div><p>{project.description}</p><ul className={styles.tags}>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-              <details className={styles.notes}><summary>Explore the concept <Plus size={18} aria-hidden="true" /></summary><div className={styles.notesBody}><h4>THE IDEA</h4><p>{project.idea}</p><h4>CREATIVE FOCUS</h4><p>{project.focus}</p><Link href={`/services#${project.service}`}>Explore this service <ArrowUpRight size={17} /></Link></div></details>
+              <details className={styles.notes}><summary>Explore the concept <Plus size={18} aria-hidden="true" /></summary><div className={styles.notesBody}><h4>THE IDEA</h4><p>{project.idea}</p><h4>CREATIVE FOCUS</h4><p>{project.focus}</p><Link href={serviceLinks.find((service) => service.id === project.service)?.href ?? "/services"}>Explore this service <ArrowUpRight size={17} /></Link></div></details>
             </div>
           </article>)}
         </div>

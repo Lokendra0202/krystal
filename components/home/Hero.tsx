@@ -8,6 +8,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { serviceLinks } from "@/lib/data";
 
 const heroMessages = [
   { lead: "We make brands", accent: "impossible to ignore." },
@@ -119,10 +120,10 @@ export function Hero() {
       </div>
 
       <nav aria-label="Explore creative services" className="container relative z-10 grid border-y border-white/12 text-xs font-semibold uppercase tracking-[0.1em] text-[#c7baca] md:grid-cols-3">
-        {[["01", "Brand identities", "/services#brand-design"], ["02", "Social stories", "/services#social-media"], ["03", "Reels and motion", "/services#reels"]].map(([number, title, href]) => (
-          <Link href={href} key={href} className="flex min-h-16 items-center justify-between gap-4 border-white/12 px-5 py-4 transition hover:bg-white/[0.07] md:border-r md:last:border-r-0">
-            <span className="text-pink-bright">{number}</span>
-            <span>{title}</span>
+        {serviceLinks.map((service) => (
+          <Link href={service.href} key={service.href} className="flex min-h-16 items-center justify-between gap-4 border-white/12 px-5 py-4 transition hover:bg-white/[0.07] md:border-r md:last:border-r-0">
+            <span className="text-pink-bright">{service.number}</span>
+            <span>{service.title}</span>
             <ArrowDown className="size-4" />
           </Link>
         ))}

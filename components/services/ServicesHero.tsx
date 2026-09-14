@@ -1,6 +1,7 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
+import { serviceLinks } from "@/lib/data";
 import styles from "./Services.module.css";
 
 export function ServicesHero() {
@@ -25,8 +26,8 @@ export function ServicesHero() {
         </div>
       </div>
       <nav aria-label="Explore our services" className={`container ${styles.serviceNav}`}>
-        {[["01", "Graphics & logo design", "brand-design"], ["02", "Social media marketing", "social-media"], ["03", "Reels creation", "reels"]].map(([number, title, id]) => (
-          <a href={`#${id}`} key={id}><span>{number}</span>{title}<ArrowDown size={18} /></a>
+        {serviceLinks.map((service) => (
+          <Link href={`#${service.id}`} key={service.id}><span>{service.number}</span>{service.title}<ArrowDown size={18} /></Link>
         ))}
       </nav>
     </section>

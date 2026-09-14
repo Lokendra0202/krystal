@@ -3,6 +3,7 @@ import Link from "next/link";
 type ButtonProps = {
   children: React.ReactNode;
   href?: string;
+  type?: "button" | "submit" | "reset";
   variant?: "primary" | "secondary";
   size?: "sm" | "md";
   className?: string;
@@ -26,13 +27,28 @@ const variantStyles = {
 export function Button({
   children,
   href,
+  type = "button",
   variant = "primary",
   size = "md",
   className = "",
 }: ButtonProps) {
   const classes = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
+  const isExternal = href ? /^(https?:|mailto:|tel:)/.test(href) : false;
 
   if (href) {
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          className={classes}
+          target={href.startsWith("http") ? "_blank" : undefined}
+          rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={classes}>
         {children}
@@ -40,5 +56,5 @@ export function Button({
     );
   }
 
-  return <button className={classes}>{children}</button>;
+  return <button type={type} className={classes}>{children}</button>;
 }

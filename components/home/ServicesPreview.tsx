@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { ArrowUpRight } from "lucide-react";
 import { useLayoutEffect, useRef } from "react";
@@ -8,6 +9,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Button } from "@/components/ui/Button";
+import { serviceLinks } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +21,7 @@ const services = [
       "Distinct visual identities and design assets built to make your brand instantly recognizable.",
     image: "/images/services/logo-design-graphics/graphicsdesign.png",
     alt: "Graphic design and logo design work",
+    href: serviceLinks[0].href,
   },
   {
     number: "02",
@@ -27,6 +30,7 @@ const services = [
       "Campaign-led content and social strategy that turns attention into a community around your brand.",
     image: "/images/services/social-media/social-media.png",
     alt: "Social media marketing creative work",
+    href: serviceLinks[1].href,
   },
   {
     number: "03",
@@ -35,6 +39,7 @@ const services = [
       "Fast-moving, thumb-stopping short-form videos designed for reach, rhythm, and recall.",
     image: "/images/services/reel/reel-making.png",
     alt: "Reels creation and short-form video work",
+    href: serviceLinks[2].href,
   },
 ];
 
@@ -78,11 +83,12 @@ export function ServicesPreview() {
           )
           .from(selectors("[data-services-heading]"), { opacity: 0, y: 32, duration: 0.7 })
           .from(
-            selectors("[data-service-card]"),
-            { opacity: 0, y: 46, scale: 0.96, duration: 0.65, stagger: 0.12 },
+            selectors("[data-services-action]"),
+            { opacity: 0, y: 18, duration: 0.45, clearProps: "transform,opacity" },
             "-=0.2",
-          )
-          .from(selectors("[data-services-action]"), { opacity: 0, y: 18, duration: 0.45 }, "-=0.2");
+          );
+
+        ScrollTrigger.refresh();
       });
 
       return () => motion.revert();
@@ -143,10 +149,12 @@ export function ServicesPreview() {
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {services.map((service) => (
-            <article
+            <Link
+              href={service.href}
               key={service.number}
               data-service-card
-              className="group relative min-h-[31rem] overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/[0.03] shadow-[0_20px_50px_rgba(0,0,0,0.28)]"
+              className="group relative block min-h-[31rem] overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/[0.03] shadow-[0_20px_50px_rgba(0,0,0,0.28)] outline-none transition duration-300 hover:-translate-y-1 hover:border-pink-bright/45 focus-visible:border-pink-bright focus-visible:ring-2 focus-visible:ring-pink-bright/70 focus-visible:ring-offset-4 focus-visible:ring-offset-[#080308]"
+              aria-label={`Explore ${service.title.replace(/\n/g, " ")}`}
             >
               <Image
                 src={service.image}
@@ -171,7 +179,7 @@ export function ServicesPreview() {
                 <p className="mt-4 max-w-xs text-sm leading-6 text-white/75">{service.description}</p>
                 <div className="mt-5 h-px w-full origin-left bg-pink-bright/70 transition duration-500 group-hover:scale-x-100 md:scale-x-0" />
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
