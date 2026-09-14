@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { ArrowRight, BarChart3, Rocket, Sparkles, Trophy, Users } from "lucide-react";
+
+import { serviceLinks } from "@/lib/data";
 
 import styles from "./StatsSection.module.css";
 
@@ -11,21 +14,25 @@ const aboutStats = [
     value: "3",
     label: "Creative Services",
     icon: Users,
+    href: "/services",
   },
   {
     value: "Logo",
     label: "Brand Identity",
     icon: Rocket,
+    href: serviceLinks[0].href,
   },
   {
     value: "Social",
     label: "Media Marketing",
     icon: Trophy,
+    href: serviceLinks[1].href,
   },
   {
     value: "Reels",
     label: "Short-Form Videos",
     icon: BarChart3,
+    href: serviceLinks[2].href,
   },
 ];
 
@@ -60,11 +67,14 @@ export function StatsSection() {
                 ever-evolving digital world.
               </p>
               <div className="mt-8 grid max-w-[50rem] gap-3 sm:grid-cols-2">
-                {aboutStats.map(({ value, label, icon: Icon }) => (
-                  <div
-                    key={label} data-home-reveal
+                {aboutStats.map(({ value, label, icon: Icon, href }) => (
+                  <Link
+                    href={href}
+                    key={label}
+                    data-home-reveal
 
-                    className="group relative flex min-h-24 items-center gap-4 overflow-hidden rounded-[1.5rem] border border-white/18 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.055))] px-5 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_18px_40px_rgba(0,0,0,0.28)] backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.07))]"
+                    className="group relative flex min-h-24 items-center gap-4 overflow-hidden rounded-[1.5rem] border border-white/18 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.055))] px-5 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_18px_40px_rgba(0,0,0,0.28)] backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.07))] focus-visible:border-pink-bright focus-visible:ring-2 focus-visible:ring-pink-bright/70 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+                    aria-label={`Explore ${label}`}
                   >
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,77,184,0.12),transparent_40%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                     <div className="relative flex size-12 shrink-0 items-center justify-center rounded-2xl border border-white/8 bg-white/[0.04] text-pink-bright">
@@ -78,7 +88,7 @@ export function StatsSection() {
                     </div>
                     <ArrowRight className="relative ml-auto size-5 text-white/32 transition-all duration-300 group-hover:text-white/70" />
                     <span className="absolute inset-x-5 bottom-0 h-px bg-[linear-gradient(90deg,rgba(255,77,184,0),rgba(255,77,184,0.65),rgba(255,77,184,0))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
